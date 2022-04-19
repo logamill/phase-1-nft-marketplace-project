@@ -17,7 +17,10 @@ fetch(baseURL)
 .then(resp => resp.json())
 .then(data => callbackNFT(data))
 .catch(err => console.error(err))
- 
+
+// git check
+
+
 //populate with data with json info
 function callbackNFT(data) {    
     data.assets.forEach(element => {
