@@ -1,0 +1,100 @@
+{
+  "nfts": [
+    {
+      "id": 1,
+      "name": "Spiderman",
+      "image": "https://i.giphy.com/media/gLuiv0tCgMQoAMkBjz/giphy.webp",
+      "price": 0.5
+    },
+    {
+      "id": 2,
+      "name": "TwoFace",
+      "image": "https://i.giphy.com/media/zbGPHNIT3Xv4lkCFx5/giphy.webp",
+      "price": 1.2
+    },
+    {
+      "id": 3,
+      "name": "Mr. HODL",
+      "image": "https://nftcalendar.io/storage/uploads/events/2021/11/z4wfjb8T9ulwgFgaojOv7G4bsXrzeBuOYh9W0iuv.gif",
+      "price": 1
+    },
+    {
+      "id": 4,
+      "name": "UTOPIA",
+      "image": "https://i.giphy.com/media/nm4A5yynb565rJYmXm/giphy-downsized-large.gif",
+      "price": 32
+    },
+    {
+      "id": 5,
+      "name": "Guy",
+      "image": "https://i.giphy.com/media/E3y79zUo2V4v8AFG2V/giphy.webp",
+      "price": 5
+    },
+    {
+      "id": 6,
+      "name": "Storm Bro",
+      "image": "https://i.giphy.com/media/N5ylQf1xKifMtqF1t3/giphy.webp",
+      "price": 2
+    },
+    {
+      "id": 7,
+      "name": "Microsoft",
+      "image": "https://i.giphy.com/media/GXpsSD7n8jU8WN4PFR/giphy-downsized-large.gif",
+      "price": 4
+    },
+    {
+      "id": 8,
+      "name": "SPACE-APE",
+      "image": "https://lh3.googleusercontent.com/rqiUnNPLLqnzsXpC_90_G_pJVXteZBfkTnStI7aFObbORJb_Ihv6LrhyTQ4zAyRk5-dABLSTU6uA_9b9aCxdzvGPGySqcKerip-f3A=w600",
+      "price": 1500
+    },
+    {
+      "id": 9,
+      "name": "Channel",
+      "image": "https://c.tenor.com/VKRMXRLOpJQAAAAd/azuki-nft.gif",
+      "price": 6
+    },
+    {
+      "id": 10,
+      "name": "Goku",
+      "image": "https://c.tenor.com/Oo1BLXnNEzMAAAAd/sushichaeng-anime-reaction.gif",
+      "price": 0.63
+    },
+    {
+      "id": 11,
+      "name": "stack",
+      "image": "https://public.nftstatic.com/static/nft/zipped/938390ba5f0045df98741d3c18075a2f_zipped.gif",
+      "price": 0.3
+    },
+    {
+      "id": 12,
+      "name": "Travl",
+      "image": "https://i.giphy.com/media/EibwwFfKuZzD3vyKH4/giphy.webp",
+      "price": 8.33333
+    },
+    {
+      "id": 13,
+      "name": "Trunks",
+      "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2Fz8n8dWgQ0mgEIyzlmV%2Fgiphy.gif",
+      "price": 2.6
+    },
+    {
+      "id": 14,
+      "name": "my irl gf",
+      "image": "https://c.tenor.com/0znANC2b_OkAAAAd/kitagawa-marin.gif",
+      "price": 10000000000000000
+    },
+    {
+      "id": 15,
+      "name": "Go-Rilla",
+      "image": "https://c.tenor.com/ex0ssYC5xdEAAAAd/metakongz-nft.gif",
+      "price": 4
+    },
+    {
+      "name": "Cat",
+      "image": "https://c.tenor.com/Q9uEJqY5UtMAAAAC/cute-cat-cute-cat-nft.gif",
+      "price": "0",
+      "id": 16
+    }
+  ]
+}

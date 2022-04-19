@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="src/index.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <head></head>
+    <button id="mode-toggle" class="myButton">Toggle Dark/Light Mode</button>
+    <button id="filter" class="myButton">Filter by Price</button>
+    <div id="nftInfo">
+        
+    </div>
+    <span id="nft-id"></span>
+    <div id="create-nft">
+    <h4>Add New Character</h4>
+    <form id="nft-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+      </div>
+      <div>
+        <label for="image-url">Image URL</label>
+        <input type="text" id="image-url" name="image-url" />
+      </div>
+      <div>
+        <label for="price">Price</label>
+        <input type="number" id="nft-price" name="nft-price" />
+      </div>
+      <input type="submit" value="Mint NFT" />
+    </form> 
+    </div>
+    
+    <!-- Modal content -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img id="modal-content" img src="">
+        <p id="caption"></p>
+        <p id="priceCap"></p>
+            <img id="eth" img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"></img>
+    </div>
+  </div>
+</body> 
+
+</html>
