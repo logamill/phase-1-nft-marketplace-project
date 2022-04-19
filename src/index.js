@@ -1,5 +1,6 @@
 //global variables
 let baseURL = 'https://api.opensea.io/api/v1/assets?format=json';
+let localHost = 'http://localhost:3000/nfts'
 let imageDiv = document.getElementById('nftInfo')
 let spanImg = document.getElementById('nft-id')
 let modalImage = document.getElementById('modal-content')
@@ -16,13 +17,17 @@ fetch(baseURL)
 .then(data => callbackNFT(data))
 .catch(err => console.error(err))
 
+fetch(localHost)
+.then(resp => resp.json())
+.then(data => callbackLocalNFT(data))
+.catch(err => console.error(err))
+
 //populate with data with json info
 function callbackNFT(data) {    
     data.assets.forEach(element => {
         if(element.image_url === null || element.name === null) {
             return;
         }
-
         let images = document.createElement('img')
         let h3 = document.createElement('h3')
 
@@ -39,9 +44,43 @@ function callbackNFT(data) {
             modal.style.display = "flex"
             modalImage.src = element.image_url
             caption.textContent = element.name
-            priceCap.textContent = element.price + ' ETH'
+            priceCap.textContent = element.collection.description
 
-            document.addEventListener('keydown', () => {
+            document.addEventListener('keydown', (event) => {
+                if(event.key === 'Escape'){
+                    modal.style.display = 'none';
+                }
+            })
+
+            span.onclick = function() { 
+                modal.style.display = "none";
+              }
+        })
+    })
+}
+
+//populate with data with local json info
+function callbackLocalNFT(data) {    
+    data.forEach(element => {
+        let images = document.createElement('img')
+        let h3 = document.createElement('h3')
+
+        images.src = element.image_url
+        spanImg.append(images)
+        images.appendChild(h3)
+        h3.textContent = element.name
+        images.setAttribute('class', 'nft-images')
+
+        images.addEventListener('click', () => {
+            console.log(element.image)
+            console.log(element.price)
+            console.log(modal)
+            modal.style.display = "flex"
+            modalImage.src = element.image_url
+            caption.textContent = element.name
+            priceCap.textContent = element.description
+
+            document.addEventListener('keydown', (event) => {
                 if(event.key === 'Escape'){
                     modal.style.display = 'none';
                 }
@@ -71,15 +110,15 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     let newNFT = {
     name: e.target['name'].value,
-    image: e.target['image-url'].value,
-    price: e.target['nft-price'].value,
+    image_url: e.target['image-url'].value,
+    description: e.target['nft-desc'].value,
     }
 
     postNFT(newNFT)
 })
 
 function postNFT(newNFT) {
-    fetch(baseURL, {
+    fetch(localHost, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -88,7 +127,7 @@ function postNFT(newNFT) {
         body: JSON.stringify(newNFT)
     })
     .then(resp => resp.json())
-    .then(data => callbackNFT(data))
+    .then(data => console.log())
     .catch(err => console.error(err))
 }
 

@@ -50,32 +50,6 @@ body {
 	top:1px;
 }
 
-/* filter button */
-.myButton#filter{
-	box-shadow:inset 0px 0px 15px 3px green;
-	background:linear-gradient(to bottom, greenyellow 5%, greenyellow 100%);
-	background-color: greenyellow;
-	border-radius:17px;
-	border:1px solid greenyellow;
-	display:inline-block;
-	cursor:pointer;
-	color: black;
-	font-family:Arial;
-	font-size:15px;
-    font-weight: bold;
-	padding:6px 13px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px greenyellow;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-	background-color:#415989;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
 .nft-images {
     height: 250px;
     width: 250px;
@@ -134,7 +108,7 @@ h3 {
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
   }
   
-  /* Modal Content (image) */
+  /* Modal Content */
   .modal-content {
     display: flex;
     /* width: 80%; */
@@ -142,9 +116,8 @@ h3 {
     
   }
 
-  .modal-content #img {
-    height: 250x;
-    width: 250px;
+  img#modal-content {
+    width: 50%;
     padding: 10px;
   }
   
@@ -152,8 +125,8 @@ h3 {
   #caption {
     margin: auto;
     display: block;
-    /* width: 80%; */
-    max-width: 100px;
+    width: 30%;
+    max-width: 250px;
     text-align: center;
     color: #ccc;
     padding: 10px;
@@ -162,21 +135,14 @@ h3 {
   #priceCap {
     margin: auto;
     display: inline-block;
-    /* width: 80%; */
-    max-width: 100px;
+    width: 50%;
+    font-weight: 200;
     justify-content: right;
     text-align: bottom;
     color: #ccc;
     padding: 10;
   }
 
-  #eth {
-      margin: auto;
-      display: inline-block;
-      text-align: left;
-      height: 25px;
-      width: 25px;
-  }
 
   /* Add Animation */
   .modal-content, #caption {  
