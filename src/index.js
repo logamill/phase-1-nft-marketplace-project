@@ -20,7 +20,6 @@ fetch(baseURL)
 
 // git check
 
-
 //populate with data with json info
 function callbackNFT(data) {    
     data.assets.forEach(element => {

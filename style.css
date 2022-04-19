@@ -1,6 +1,6 @@
 body {
     padding: 25px;
-    background-color: white;
+    background-color: #f7f7f7;
     color: black;
     font-size: 25px;
     background-repeat: repeat-y;
@@ -8,7 +8,7 @@ body {
     background-size: auto;
     padding-left: 50px;;
     height: 100%;
-    background-image: url("src/images/newlight.gif");
+    background-image: url("src/images/111light.gif");
 
   }
   
@@ -20,7 +20,7 @@ body {
     background-size: auto;
     padding-left: 50px;;
     height: 100%;
-    background-image: url("https://im5.ezgif.com/tmp/ezgif-5-8106ac7ac3.gif");
+    background-image: url("src/images/trytry.gif");
 
 
   }
