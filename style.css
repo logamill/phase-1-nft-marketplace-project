@@ -13,7 +13,7 @@ body {
   }
   
   .dark-mode {
-    background-color: black;
+    background-color: #080808;
     color: greenyellow;
     background-repeat: repeat-y;
     background-position: right;

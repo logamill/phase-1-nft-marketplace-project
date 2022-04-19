@@ -10,15 +10,11 @@ let span = document.getElementsByClassName("close")[0];
 let darkmode = document.getElementById('mode-toggle')
 let form = document.getElementById('nft-form')
 
-let currentNFT = {}
-
 //initial fetch 
 fetch(baseURL)
 .then(resp => resp.json())
 .then(data => callbackNFT(data))
 .catch(err => console.error(err))
-
-// git check
 
 //populate with data with json info
 function callbackNFT(data) {    
@@ -27,7 +23,6 @@ function callbackNFT(data) {
             return;
         }
 
-        // let createSpan = document.createElement('span')
         let images = document.createElement('img')
         let h3 = document.createElement('h3')
 
