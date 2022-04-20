@@ -1,98 +1,125 @@
 //global variables
-let baseURL = 'https://api.opensea.io/api/v1/assets?format=json';
-let imageDiv = document.getElementById('nftInfo')
-let spanImg = document.getElementById('nft-id')
-let modalImage = document.getElementById('modal-content')
-let modal = document.getElementById('myModal')
-let caption = document.getElementById('caption')
-let priceCap = document.getElementById('priceCap')
-let span = document.getElementsByClassName("close")[0];
-let darkmode = document.getElementById('mode-toggle')
-let form = document.getElementById('nft-form')
+const baseURL = 'https://api.opensea.io/api/v1/assets?format=json';
+const localHost = 'http://localhost:3000/nfts';
+const imageDiv = document.getElementById('nftInfo'); // append NFTS to div
+const modalImage = document.getElementById('modal-content');
+const modal = document.getElementById('myModal');
+const caption = document.getElementById('caption');
+const priceCap = document.getElementById('priceCap');
+const close = document.getElementsByClassName("close")[0];
+const lightmode = document.getElementById('moon');
+const form = document.getElementById('nft-form');
 
-let currentNFT = {}
+// light switch
+lightmode.addEventListener('click', () => {
+    document.body.classList.toggle("light-mode")
+});
 
-//initial fetch 
-fetch(baseURL)
-.then(resp => resp.json())
-.then(data => callbackNFT(data))
-.catch(err => console.error(err))
- 
-//populate with data with json info
-function callbackNFT(data) {    
-    data.assets.forEach(element => {
-        if(element.image_url === null || element.name === null) {
-            return;
-        }
+fetchAndParse(localHost) //local fetch
+    .then(data => loopAndCreate(data)) // populate #nftInfo div with local data
+    .catch(err => console.error(err));
 
-        // let createSpan = document.createElement('span')
-        let images = document.createElement('img')
-        let h3 = document.createElement('h3')
+fetchAndParse(baseURL) //public fetch
+    .then(data => loopAndCreate(data.assets)) //populate #nftInfo div with public data
+    .catch(err => console.error(err));
 
-        images.src = element.image_url
-        spanImg.append(images)
-        images.appendChild(h3)
-        h3.textContent = element.name
-        images.setAttribute('class', 'nft-images')
+close.addEventListener('click', () => { // close pop-up
+    modal.style.display = "none"
+});
 
+document.addEventListener('keydown', (event) => { // esc pop-up
+    if (event.key === 'Escape') {
+        modal.style.display = 'none'
+    }
+});
+
+// mint your own nft
+form.addEventListener('submit', postAndAppend);
+
+
+
+// Functions 
+function fetchAndParse(link) {
+    return fetch(link).then(res => res.json())
+};
+
+
+function loopAndCreate(obj) {
+    obj.forEach(element => {
+        if (element.image_url === null) {
+            if (element.name === null) {
+                if (element.collection.description === null) {
+                    return
+                }
+                return
+            }
+            return
+        };
+
+        //create elements and assign values
+        const span = document.createElement('span');
+        const images = document.createElement('img');
+        images.src = element.image_url;
+        images.setAttribute('class', 'nft-images');
+
+        // append to #mftInfo
+        span.append(images);
+        imageDiv.append(span);
+
+        // click for NFT info
         images.addEventListener('click', () => {
-            console.log(element.image)
-            console.log(element.price)
-            console.log(modal)
             modal.style.display = "flex"
             modalImage.src = element.image_url
             caption.textContent = element.name
-            priceCap.textContent = element.price + ' ETH'
-
-            document.addEventListener('keydown', () => {
-                if(event.key === 'Escape'){
-                    modal.style.display = 'none';
-                }
-            })
-
-            span.onclick = function() { 
-                modal.style.display = "none";
-              }
+            if (element.description === undefined) {
+                priceCap.textContent = element.collection.description
+            } else {
+                priceCap.textContent = element.description
+            }
         })
+
     })
 }
 
-// filter by price
-
-// click for info
-
-// switch light/dark mode
-darkmode.addEventListener('click', ()=> {
-    let mode = document.body;
-    mode.classList.toggle("dark-mode")
-})
-
-// STRETCH GOALS
-
-// mint your own nft
-form.addEventListener('submit', (e) => {
+function postAndAppend(e) {
     e.preventDefault();
+
     let newNFT = {
-    name: e.target['name'].value,
-    image: e.target['image-url'].value,
-    price: e.target['nft-price'].value,
+        name: e.target['name'].value,
+        image_url: e.target['image-url'].value,
+        description: e.target['nft-desc'].value,
     }
 
-    postNFT(newNFT)
-})
+    const span = document.createElement('span');
+    const images = document.createElement('img');
+    images.src = newNFT.image_url
+    images.setAttribute('class', 'nft-images');
 
-function postNFT(newNFT) {
-    fetch(baseURL, {
+    // append to #mftInfo
+    span.append(images);
+    imageDiv.append(span);
+    // image pop-up
+    images.addEventListener('click', () => {
+        modal.style.display = "flex"
+        modalImage.src = newNFT.image_url
+        caption.textContent = newNFT.name
+        priceCap.textContent = newNFT.description
+    });
+    // clear form
+    form.reset();
+    // post to database
+    postNFT(localHost, newNFT)
+        .catch(err => console.error(err)) // catch errors
+}
+
+function postNFT(link, obj) { // post callback
+    fetch(link, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
             'Accpet': 'application/json'
         },
-        body: JSON.stringify(newNFT)
+        body: JSON.stringify(obj)
     })
-    .then(resp => resp.json())
-    .then(data => callbackNFT(data))
-    .catch(err => console.error(err))
-}
-
-
+        .then(resp => resp.json())
+};

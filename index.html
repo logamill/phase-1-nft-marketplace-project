@@ -1,49 +1,66 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="src/index.js" defer></script>
-    <title>Document</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://kit.fontawesome.com/d5092a77a3.js" crossorigin="anonymous"></script>
+  <script src="src/index.js" defer></script>
+
+  <title>Private Lake</title>
+
 </head>
+
 <body>
-    <head></head>
-    <button id="mode-toggle" class="myButton">Toggle Dark/Light Mode</button>
-    <button id="filter" class="myButton">Filter by Price</button>
-    <div id="nftInfo">
-        
-    </div>
-    <span id="nft-id"></span>
-    <div id="create-nft">
-    <h4>Add New Character</h4>
+
+  <i class="fa-solid fa-moon" id="moon"></i>
+  <div id="nftInfo"></div>
+
+  <!-- Modal content -->
+
+  <div id="myModal" class="modal">
+
+    <span class="close">&times;</span>
+
+    <img id="modal-content" img src="">
+
+    <p id="caption"></p>
+
+    <p id="priceCap"></p>
+
+  </div>
+
+  <div id="create-nft">
+    <h4 id="title">Mint Your Own NFT</h4>
     <form id="nft-form">
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" />
       </div>
+
       <div>
         <label for="image-url">Image URL</label>
         <input type="text" id="image-url" name="image-url" />
       </div>
+
       <div>
-        <label for="price">Price</label>
-        <input type="number" id="nft-price" name="nft-price" />
+        <label for="price">Description</label>
+        <input type="text" id="nft-desc" name="nft-description" />
       </div>
-      <input type="submit" value="Mint NFT" />
-    </form> 
-    </div>
-    
-    <!-- Modal content -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img id="modal-content" img src="">
-        <p id="caption"></p>
-        <p id="priceCap"></p>
-            <img id="eth" img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"></img>
-    </div>
+
+      <div>
+        <input type="submit" value="Mint NFT" />
+      </div>
+    </form>
   </div>
-</body> 
+
+
+</body>
 
 </html>
