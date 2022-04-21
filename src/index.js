@@ -9,7 +9,6 @@ const priceCap = document.getElementById('priceCap');
 const close = document.getElementsByClassName("close")[0];
 const lightmode = document.getElementById('moon');
 const form = document.getElementById('nft-form');
-
 // light switch
 lightmode.addEventListener('click', () => {
     document.body.classList.toggle("light-mode")
@@ -33,17 +32,14 @@ document.addEventListener('keydown', (event) => { // esc pop-up
     }
 });
 
-// mint your own nft
-form.addEventListener('submit', postAndAppend);
-
-
+form.addEventListener('submit', postAndAppend); // mint your own nft
 
 // Functions 
 function fetchAndParse(link) {
     return fetch(link).then(res => res.json())
 };
 
-
+//--------------------------
 function loopAndCreate(obj) {
     obj.forEach(element => {
         if (element.image_url === null) {
@@ -81,20 +77,18 @@ function loopAndCreate(obj) {
     })
 }
 
+//--------------------------
 function postAndAppend(e) {
     e.preventDefault();
-
     let newNFT = {
         name: e.target['name'].value,
         image_url: e.target['image-url'].value,
         description: e.target['nft-desc'].value,
     }
-
     const span = document.createElement('span');
     const images = document.createElement('img');
     images.src = newNFT.image_url
     images.setAttribute('class', 'nft-images');
-
     // append to #mftInfo
     span.append(images);
     imageDiv.append(span);
@@ -112,6 +106,7 @@ function postAndAppend(e) {
         .catch(err => console.error(err)) // catch errors
 }
 
+//--------------------------
 function postNFT(link, obj) { // post callback
     fetch(link, {
         method: 'POST',
