@@ -10,9 +10,12 @@ const close = document.getElementsByClassName("close")[0];
 const lightmode = document.getElementById('moon');
 const form = document.getElementById('nft-form');
 // light switch
-lightmode.addEventListener('click', () => {
-    document.body.classList.toggle("light-mode")
-});
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM CONTENT LOADED')
+    lightmode.addEventListener('click', () => {
+        document.body.classList.toggle("light-mode")
+    });
+})
 
 fetchAndParse(localHost) //local fetch
     .then(data => loopAndCreate(data)) // populate #nftInfo div with local data
@@ -80,6 +83,7 @@ function loopAndCreate(obj) {
 //--------------------------
 function postAndAppend(e) {
     e.preventDefault();
+    
     let newNFT = {
         name: e.target['name'].value,
         image_url: e.target['image-url'].value,

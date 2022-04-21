@@ -22,6 +22,16 @@ body {
   background-image: url("src/images/111light.gif");
 }
 
+.light-mode .nft-images {
+  border-radius: 10%;
+  height: 250px;
+  width: 250px;
+  /* padding: 25px; */
+  display: flexbox;
+  cursor: pointer;
+  opacity: 75%;
+}
+
 
 
 /* toggle dark-mode button */
@@ -52,12 +62,38 @@ body {
   text-align: justify;
 }
 
+span {
+  padding: 25px;
+  display: inline-block;
+
+}
+
 
 .nft-images {
+  border-radius: 10%;
   height: 250px;
   width: 250px;
-  padding: 25px;
+  /* padding: 25px; */
   display: flexbox;
+  cursor: pointer;
+  opacity: 75%;
+  
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(100%);
+  }
+}
+
+.nft-images:hover {
+  transform: scale(1.1);
+  animation: pulse 4s infinite;
+  opacity: 100%;
 }
 
 p {
@@ -110,6 +146,7 @@ p {
 }
 
 img#modal-content {
+  border-radius: 10%;
   width: 50%;
   padding: 10px;
 }
